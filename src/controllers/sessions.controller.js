@@ -78,11 +78,13 @@ const unprotectedLogin = async (req, res) => {
     .cookie("unprotectedCookie", token, { maxAge: 3600000 })
     .send({ status: "success", message: "Unprotected Logged in" });
 };
+
 const unprotectedCurrent = async (req, res) => {
   const cookie = req.cookies["unprotectedCookie"];
   const user = jwt.verify(cookie, "tokenSecretJWT");
   if (user) return res.send({ status: "success", payload: user });
 };
+
 export default {
   current,
   login,

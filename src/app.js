@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import config from "./config/config.js";
+import cors from "cors";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUiExpress from "swagger-ui-express";
 import usersRouter from "./routes/users.router.js";
@@ -28,6 +29,10 @@ app.use("/apidocs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({ origin: "http://localhost:8080",
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+ }));
 
 app.use("/api/users", usersRouter);
 app.use("/api/pets", petsRouter);
