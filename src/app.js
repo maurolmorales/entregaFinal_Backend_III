@@ -40,4 +40,8 @@ app.use("/api/adoptions", adoptionsRouter);
 app.use("/api/sessions", sessionsRouter);
 app.use("/api/mocks", mockingRouter);
 
+app.use((req, res, next) => {
+  res.status(404).json({ status: "error", error: "404 Not Found" });
+});
+
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

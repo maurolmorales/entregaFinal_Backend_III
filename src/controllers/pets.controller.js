@@ -34,7 +34,8 @@ const updatePet = async (req, res) => {
     const petUpdateBody = req.body;
     const petId = req.params.pid;
     const result = await petsService.update(petId, petUpdateBody);
-    res.status(200).send({ status: "success", message: "pet updated" });
+    if (!result) { return res.status(400).send({ status: "error", message: "Can't update Pet" })}
+    return res.status(200).send({ status: "success", message: "pet updated" });
   } catch (error) {
     res.status(500).send({ status: "error", error: error.message });
   }
@@ -58,20 +59,20 @@ const createPetWithImage = async (req, res) => {
       return res
         .status(400)
         .send({ status: "error", error: "Incomplete values" });
-    console.log(file);
     const pet = PetDTO.getPetInputFrom({
       name,
       specie,
       birthDate,
       image: `${__dirname}/../public/img/${file.filename}`,
     });
-    console.log(pet);
     const result = await petsService.create(pet);
-    res.status(200).send({ status: "success", payload: result });
+    if (!result) {return res.send({ status: "error", error: "Can't create Pet" }) }
+    return res.status(201).send({ status: "success", payload: result });
   } catch (error) {
-    res.status(500).send({ status: "error", error: error.message });
+    return res.status(500).send({ status: "error", error: error.message });
   }
 };
+
 export default {
   getAllPets,
   createPet,

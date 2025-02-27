@@ -8,7 +8,9 @@
     "start": "node src/app.js",
     "dev": " node --watch src/app.js",
     "test": "mocha test/users.test.js",
-    "supertestUser": "mocha test/supertest.user.test.js"
+    "supertestUsers": "mocha test/supertest.user.test.js",
+    "supertestPets": "mocha test/supertest.pets.test.js",
+    "supertestAdoptions": "mocha test/supertest.adoptions.test.js"
   },
   "keywords": [],
   "author": "",

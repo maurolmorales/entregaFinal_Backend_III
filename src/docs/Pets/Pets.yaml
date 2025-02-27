@@ -32,6 +32,7 @@ paths:
           description: Datos incompletos
         "500":
           description: Error en el servidor
+  
   /api/pets/withimage:
     post:
       summary: Crear una mascota con imagen
@@ -58,6 +59,8 @@ paths:
                   type: string
                   format: binary
                   description: Imagen de la mascota
+              items:
+                  $ref: "#components/schemas/PetInput"    
       responses:
         "201":
           description: Mascota con imagen creada correctamente
@@ -65,6 +68,7 @@ paths:
           description: Datos incompletos
         "500":
           description: Error en el servidor
+  
   /api/pets/{pid}:
     put:
       summary: Actualizar información de una mascota por ID
