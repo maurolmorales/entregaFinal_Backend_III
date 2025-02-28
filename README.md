@@ -1,4 +1,5 @@
-# Entrega Final
+# Entrega Final Backend III
+
 ## Mocking
 Se agregó la ruta <code>app.use('/api/mocks', mockingRouter) </code> en la carpeta <code>/routes</code>.
 
@@ -9,16 +10,13 @@ router.get('/mockingusers/:cant?', mocksController.getMockingUsers );</code>
 Se desarrollo un endpoint para llamar las funciones <b>getMockingPets</b> y <b>getMockingUsers</b> y que el resultado del pedido se guarde en la BD. </br>
 <code>router.post('/generatedata/:cantPets?/:cantUser?', mocksController.postSaveDataDB );</code> 
 </br>
-</br>
-</br>
 
 Las rutas se pueden ejecutar en: <br>
 <code>http://localhost:8080/api/mocks/mockingpets/{cantidad}</code> <br>
 <code>http://localhost:8080/api/mocks/mockingusers/{cantidad}</code> <br>
 <code>http://localhost:8080/api/mocks/generatedata/{cantidadPets}/{cantidadUsers}</code>
 </br>
-</br>
-</br>
+
 Para testear: <br>
 <code>http://localhost:8080/api/pets</code> <br>
 <code>http://localhost:8080/api/users</code>
@@ -26,10 +24,7 @@ Para testear: <br>
 </br>
 </br>
 ## Docs
- Se agregó Swagger para la documentación de los endpoints.
- <br> <br>
-Swagger: </br>
-<code>http://localhost:8080/apidocs/</code>
+ Se agregó Swagger para la documentación de los endpoints de pets, users, adoptions y sessions. Link: <code>http://localhost:8080/apidocs/</code>
 </br>
 </br>
 </br>
@@ -49,6 +44,9 @@ Los cuales se pueden ejecutar con:
 </br>
 <code> npm run supertestPets </code>
 </br>
+</br>
+</br>
 
-
+## DockerHub
+<code> https://hub.docker.com/repository/docker/maurolmorales/entregafinal/ </code>
 
